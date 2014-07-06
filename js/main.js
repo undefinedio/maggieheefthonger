@@ -28,9 +28,8 @@ $(function ($) {
 //    });
 
 
-
-    var mouseXLeft = 0, mouseYLeft = 0, limitX = 60, limitY = 24;
-    $(window).mousemove(function(e){
+    var mouseXLeft = 0, mouseYLeft = 0, mouseXRight = 0, mouseYRight = 0, limitX = 60, limitY = 24;
+    $(window).mousemove(function (e) {
         var offsetLeft = $('#left').offset();
         mouseXLeft = Math.min(e.pageX - offsetLeft.left, limitX);
         mouseYLeft = Math.min(e.pageY - offsetLeft.top, limitY);
@@ -45,16 +44,16 @@ $(function ($) {
     });
 
     var leftPupil = $('#leftpupil'), xp = 25, yp = 0,
-        leftLoop = setInterval(function(){
+        leftLoop = setInterval(function () {
             xp += (mouseXLeft - xp) / 1 + 25;
             yp += (mouseYLeft - yp) / 1 + 25;
-            leftPupil.css({left:xp, top:yp});
+            leftPupil.css({left: xp, top: yp});
         }, 30);
     var rightPupil = $('#rightpupil'), xp = 0, yp = 90,
-        rightLoop = setInterval(function(){
+        rightLoop = setInterval(function () {
             xp += (mouseXRight - xp) / 1 + 25;
             yp += (mouseYRight - yp) / 1 + 25;
-            rightPupil.css({left:xp, top:yp});
+            rightPupil.css({left: xp, top: yp});
         }, 30);
 
 });
