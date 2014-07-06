@@ -27,16 +27,35 @@ $(function ($) {
 //
 //    });
 
-    var leftPosition = $("#lefteye").position();
-    var rightPosition = $("#righteye").position();
-    var xlEl = leftPosition.left;
-    var ylEl = leftPosition.top;
 
-    //Variables are just used to make it obvious what each parameter is,
-    //you can call the functions with the param's directly if you prefer.
-    new alienEye(0, 0, 120, 'lefteye');
-    new alienEye(0, 0, 120, 'righteye');
 
+    var mouseXLeft = 0, mouseYLeft = 0, limitX = 60, limitY = 24;
+    $(window).mousemove(function(e){
+        var offsetLeft = $('#left').offset();
+        mouseXLeft = Math.min(e.pageX - offsetLeft.left, limitX);
+        mouseYLeft = Math.min(e.pageY - offsetLeft.top, limitY);
+        if (mouseXLeft < 0) mouseXLeft = 0;
+        if (mouseYLeft < 0) mouseYLeft = 0;
+
+        var offsetRight = $('#right').offset();
+        mouseXRight = Math.min(e.pageX - offsetRight.left, limitX);
+        mouseYRight = Math.min(e.pageY - offsetRight.top, limitY);
+        if (mouseXRight < 0) mouseXRight = 0;
+        if (mouseYRight < 0) mouseYRight = 0;
+    });
+
+    var leftPupil = $('#leftpupil'), xp = 25, yp = 0,
+        leftLoop = setInterval(function(){
+            xp += (mouseXLeft - xp) / 1 + 25;
+            yp += (mouseYLeft - yp) / 1 + 25;
+            leftPupil.css({left:xp, top:yp});
+        }, 30);
+    var rightPupil = $('#rightpupil'), xp = 0, yp = 90,
+        rightLoop = setInterval(function(){
+            xp += (mouseXRight - xp) / 1 + 25;
+            yp += (mouseYRight - yp) / 1 + 25;
+            rightPupil.css({left:xp, top:yp});
+        }, 30);
 
 });
 

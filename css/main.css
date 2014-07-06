@@ -17,7 +17,8 @@ canvas {
 .container {
   width: 800px;
   height: 800px;
-  margin: 4% auto; }
+  margin: 4% auto;
+  position: relative; }
 
 .maggie {
   width: 100%;
@@ -32,16 +33,22 @@ canvas {
   z-index: 10;
   position: absolute; }
   .eyes .pupil {
-    width: 44px;
-    left: 39px;
-    top: 10px;
-    position: absolute; }
+    width: 50px;
+    height: 50px;
+    margin-top: -22px;
+    margin-left: -22px;
+    position: absolute;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -ms-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    transition: all 0.1s linear; }
   .eyes#lefteye {
-    top: 20%;
-    left: 28%; }
+    top: 150px;
+    left: 176px; }
   .eyes#righteye {
-    top: 15%;
-    left: 57%; }
+    top: 105px;
+    left: 476px; }
   .eyes #left, .eyes #right {
     width: 120px;
     height: 60px;
