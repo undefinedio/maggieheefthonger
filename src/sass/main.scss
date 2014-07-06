@@ -67,3 +67,30 @@ canvas {
     background: #fff;
   }
 }
+
+.mond {
+    width: 510px;
+    height: 563px;
+    background: url(../img/mond.png) no-repeat;
+    background-size: contain;
+    z-index: -1;
+    position: absolute;
+    position: absolute;
+    left: 134px;
+    top: 265px;
+    -webkit-transform: all .5s ease-in-out;
+    -moz-transform: all .5s ease-in-out;
+    -ms-transform: all .5s ease-in-out;
+    -o-transform: all .5s ease-in-out;
+    transform: all .5s ease-in-out;
+}
+
+.mondArea {
+    width: 250px;
+    height: 140px;
+    position: absolute;
+    top: 52%;
+    left: 33%;
+    display: block;
+    z-index: 100;
+}

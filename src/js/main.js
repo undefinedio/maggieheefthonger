@@ -9,6 +9,26 @@ var sound = new Howl({
     }
 });
 
+/** Converts numeric degrees to radians */
+if (typeof(Number.prototype.toRad) === "undefined") {
+    Number.prototype.toRad = function () {
+        return this * Math.PI / 180;
+    }
+}
+
+function lineDistance(point1, point2) {
+    var xs = 0;
+    var ys = 0;
+
+    xs = point2.x - point1.x;
+    xs = xs * xs;
+
+    ys = point2.y - point1.y;
+    ys = ys * ys;
+
+    return Math.sqrt(xs + ys);
+}
+
 $(function ($) {
 
     var mouseXLeft = 0, mouseYLeft = 0, mouseXRight = 0, mouseYRight = 0, limitX = 70, limitY = 14;
@@ -28,6 +48,28 @@ $(function ($) {
         mouseYRight = Math.min(e.pageY - offsetRight.top, limitY);
         if (mouseXRight < 0) mouseXRight = 0;
         if (mouseYRight < 0) mouseYRight = 0;
+
+        var mousePointer = new Object,
+            mouth = new Object;
+
+        mousePointer['x'] = e.pageX;
+        mousePointer['y'] = e.pageY;
+
+        mouth['x'] = $(window).width() / 2;
+        mouth['y'] = $(window).height() / 2;
+
+        var distance = lineDistance(mousePointer, mouth);
+        percDistance = distance / ($(window).width() / 2) * 100;
+
+        if (percDistance > 100) {
+            percDistance = 100;
+        }
+
+        topVal = 205 + (50 / 100 * percDistance);
+
+        $('.mond').css({
+            'top': topVal + "px"
+        });
     });
 
     var leftPupil = $('#leftpupil'), xp = 0, yp = 0,
@@ -46,11 +88,11 @@ $(function ($) {
         }, 30);
 
     // Random float between
-    function randomFloatBetween(minValue,maxValue,precision){
-        if(typeof(precision) == 'undefined'){
+    function randomFloatBetween(minValue, maxValue, precision) {
+        if (typeof(precision) == 'undefined') {
             precision = 2;
         }
-        return parseFloat(Math.min(minValue + (Math.random() * (maxValue - minValue)),maxValue).toFixed(precision));
+        return parseFloat(Math.min(minValue + (Math.random() * (maxValue - minValue)), maxValue).toFixed(precision));
     }
 });
 
