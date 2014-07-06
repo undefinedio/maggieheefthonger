@@ -20,12 +20,14 @@ canvas {
 
 .container {
   width: 800px;
-  height: auto;
+  height: 633px;
   margin: 0 auto;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
+//  -webkit-transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  margin-top: -316px;
+  margin-left: -400px;
 }
 
 .maggie {
@@ -35,6 +37,7 @@ canvas {
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 20;
+  position: relative;
 }
 
 .eyes {
@@ -43,9 +46,6 @@ canvas {
   .pupil {
     width: 50px;
     height: 50px;
-
-    margin-top: -22px;
-    margin-left: -22px;
     position: absolute;
     -webkit-transition: all 0.1s linear;
     -moz-transition: all 0.1s linear;
@@ -55,14 +55,12 @@ canvas {
   }
 
   &#lefteye {
-    top: 150px;
-    left: 176px;
-
+    top: 142px;
+    left: 155px;
   }
   &#righteye {
-    top: 105px;
-    left: 476px;
-
+    top: 104px;
+    left: 423px;
   }
   #left, #right {
     width: 120px;
