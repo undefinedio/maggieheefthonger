@@ -1,0 +1,10 @@
+* {
+  background: url(../img/pattern.jpg); }
+
+.hair .center {
+  background: url(../img/hair_center.png);
+  position: fixed;
+  top: -2em;
+  left: 50%;
+  height: 150px;
+  width: 480px; }
