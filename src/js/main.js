@@ -1,7 +1,7 @@
 // sup sup
 var sound = new Howl({
     urls: ['../sounds/maggie_breath.mp3'],
-    autoplay: false,
+    autoplay: true,
     loop: true,
     volume: 0.5,
     onend: function () {
@@ -10,24 +10,6 @@ var sound = new Howl({
 });
 
 $(function ($) {
-
-//    $('body').mousemove(function (kmouse) {
-//        var r = 5;
-//        var leftPosition = $("#lefteye").position();
-//        var rightPosition = $("#righteye").position();
-//        var xlEl = leftPosition.left;
-//        var ylEl = leftPosition.top;
-//
-//        var ym = kmouse.pageY - ylEl + 20;
-//        var xm = kmouse.pageX - xlEl + 20;
-//
-//        $('.mousfollower').css({'top': ym, 'left': xm});
-//
-//        console.log("r => " + r + ", xm => " + xm + "ym => " + ym);
-//
-//    });
-
-
     var mouseXLeft = 0, mouseYLeft = 0, mouseXRight = 0, mouseYRight = 0, limitX = 70, limitY = 11;
     $(window).mousemove(function (e) {
         var offsetLeft = $('#left').offset();
