@@ -1,6 +1,17 @@
 body {
   background: url(../img/pattern.jpg); }
 
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0; }
+
+canvas {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0; }
+
 .hair .center {
   background: url(../img/hair_center.png);
   position: fixed;
@@ -8,10 +19,6 @@ body {
   left: 50%;
   height: 150px;
   width: 480px; }
-
-canvas {
-  height: 100%;
-  width: 100%; }
 
 .container {
   width: 800px;
@@ -63,8 +70,8 @@ canvas {
   z-index: -1;
   position: absolute;
   position: absolute;
-  left: 18%;
-  top: 31%;
+  left: 134px;
+  top: 265px;
   -webkit-transform: all 0.5s ease-in-out;
   -moz-transform: all 0.5s ease-in-out;
   -ms-transform: all 0.5s ease-in-out;

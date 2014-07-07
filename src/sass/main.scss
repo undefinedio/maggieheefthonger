@@ -2,6 +2,19 @@ body {
   background: url(../img/pattern.jpg);
 }
 
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+canvas {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
 .hair {
   .center {
     background: url(../img/hair_center.png);
@@ -12,12 +25,6 @@ body {
     width: 480px;
   }
 }
-
-canvas {
-  height: 100%;
-  width: 100%;
-}
-
 .container {
   width: 800px;
   height: 633px;

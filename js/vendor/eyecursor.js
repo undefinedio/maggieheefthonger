@@ -37,7 +37,7 @@ function alienEye(x,y,size,append){
         //draw pupil
 //        canvas.beginPath();
         canvas.fillStyle="#FF0000";
-        canvas.drawSvg("../img/iris.svg", radius, radius/2, 50, 50);
+        canvas.drawSvg("../img/iris.svg", radius, radius/2, 5, 80);
 //        canvas.arc(radius, radius/2, radius/4, 0, Math.PI*2, true);
 //        canvas.closePath();
 //        canvas.fillStyle = "rgb(0,0,0)";

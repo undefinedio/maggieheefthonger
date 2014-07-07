@@ -24,14 +24,22 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function () {
-	gulp.src('src/js/main.js')
-		.pipe(gulp.dest('js/'))
-		.pipe(sourcemaps.init())
-			.pipe(uglify())
-		.pipe(sourcemaps.write())
-		.pipe(rename("main.min.js"))
-		.pipe(gulp.dest('js/'))
-		.pipe(livereload());
+    gulp.src('src/js/main.js')
+        .pipe(gulp.dest('js/'))
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(rename("main.min.js"))
+        .pipe(gulp.dest('js/'))
+        .pipe(livereload());
+    gulp.src('src/js/main2.js')
+        .pipe(gulp.dest('js/'))
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(rename("main2.min.js"))
+        .pipe(gulp.dest('js/'))
+        .pipe(livereload());
 });
 
 gulp.task('default', function () {
