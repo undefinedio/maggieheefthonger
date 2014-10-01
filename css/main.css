@@ -85,4 +85,5 @@ canvas {
   top: 52%;
   left: 33%;
   display: block;
-  z-index: 100; }
+  z-index: 100;
+  cursor: none; }

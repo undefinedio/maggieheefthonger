@@ -16,6 +16,7 @@ if (typeof(Number.prototype.toRad) === "undefined") {
     }
 }
 
+//pythagoras shizzle
 function lineDistance(point1, point2) {
     var xs = 0;
     var ys = 0;
@@ -29,6 +30,34 @@ function lineDistance(point1, point2) {
     return Math.sqrt(xs + ys);
 }
 
+function mouthMovement(e) {
+    var mousePointer = new Object,
+        mouth = new Object;
+
+    mousePointer['x'] = e.pageX;
+    mousePointer['y'] = e.pageY;
+
+    var $this = $('.mondArea');
+    var offset = $this.offset();
+    var width = $this.width();
+    var height = $this.height();
+
+    mouth['x'] = offset.left + width / 2;
+    mouth['y'] = offset.top + height / 2;
+
+    var distance = lineDistance(mousePointer, mouth);
+    percDistance = distance / ($(window).width() / 2) * 100;
+
+    if (percDistance > 100) {
+        percDistance = 100;
+    }
+
+    topVal = 255 - (50 / 100 * percDistance + 5);
+
+    $('.mond').css({
+        'top': topVal + "px"
+    });
+}
 $(function ($) {
 
     var mouseXLeft = 0, mouseYLeft = 0, mouseXRight = 0, mouseYRight = 0, limitX = 70, limitY = 14;
@@ -48,28 +77,8 @@ $(function ($) {
         mouseYRight = Math.min(e.pageY - offsetRight.top, limitY);
         if (mouseXRight < 0) mouseXRight = 0;
         if (mouseYRight < 0) mouseYRight = 0;
+        mouthMovement(e);
 
-        var mousePointer = new Object,
-            mouth = new Object;
-
-        mousePointer['x'] = e.pageX;
-        mousePointer['y'] = e.pageY;
-
-        mouth['x'] = $(window).width() / 2;
-        mouth['y'] = $(window).height() / 2;
-
-        var distance = lineDistance(mousePointer, mouth);
-        percDistance = distance / ($(window).width() / 2) * 100;
-
-        if (percDistance > 100) {
-            percDistance = 100;
-        }
-
-        topVal = 205 + (50 / 100 * percDistance);
-
-        $('.mond').css({
-            'top': topVal + "px"
-        });
     });
 
     var leftPupil = $('#leftpupil'), xp = 0, yp = 0,
@@ -94,5 +103,17 @@ $(function ($) {
         }
         return parseFloat(Math.min(minValue + (Math.random() * (maxValue - minValue)), maxValue).toFixed(precision));
     }
+
+    $('.mondArea').hover(
+        function () {
+            $('.mond').css({
+                'top': "205px"
+            });
+            console.log('mondArea:hover');
+        },
+        function () {
+
+        }
+    );
 });
 
